@@ -9,7 +9,10 @@ block content
       each post in post_list 
         li 
           p #{post.date}
-          p #{post.user.name}
+          if user 
+            p Posted by: #{post.user.name}
+          else 
+            p Posted by: Anonymous
           p #{post.message}
   else
     p There are no posts.
