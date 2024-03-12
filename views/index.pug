@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to Members Only!
 
   if post_list.length 
     ul 
@@ -13,3 +13,8 @@ block content
           p #{post.message}
   else
     p There are no posts.
+
+  if user 
+    p You are logged in! 
+  else 
+    p You are not logged in!

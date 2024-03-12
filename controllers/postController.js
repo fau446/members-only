@@ -9,5 +9,5 @@ exports.index = asyncHandler(async (req, res, next) => {
     .populate("user")
     .exec();
 
-  res.render("index", { title: "Members Only", post_list: allPosts });
+  res.render("index", { post_list: allPosts, user: req.user });
 });

@@ -14,11 +14,19 @@ router.get("/", postController.index);
 
 /// USER ROUTES ///
 
-// GET request for login?
-router.get("/login", function (req, res, next) {
-  res.render("index", { title: "Login Page" });
-});
+// GET request for login
+router.get("/login", userController.login_get);
 
-// POST request for creating an account
+// POST request for login
+router.post("/login", userController.login_post);
+
+// GET request for sign-up
+router.get("/sign-up", userController.sign_up_get);
+
+// POST request for sign-up
+router.post("/sign-up", userController.sign_up_post);
+
+// Log out request
+router.get("/logout", userController.logout);
 
 module.exports = router;
