@@ -11,6 +11,7 @@ const userController = require("../controllers/userController");
 router.get("/", postController.index);
 
 // POST request for creating a post
+router.post("/post", postController.create_post);
 
 /// USER ROUTES ///
 

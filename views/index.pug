@@ -4,6 +4,14 @@ block content
   h1= title
   p Welcome to Members Only!
 
+  if user
+    if user.membership_status === "guest"
+      p You are a guest, enter the secret password to become a member to post!
+    else if user.membership_status === "member"
+      p You are a member!
+  else
+    p You are not logged in! Log in or create an account to see the names of the posters!
+
   if post_list.length 
     ul 
       each post in post_list 
@@ -17,7 +25,14 @@ block content
   else
     p There are no posts.
 
-  if user 
-    p You are logged in! 
-  else 
-    p You are not logged in!
+  if user
+    if user.membership_status === "member"
+      form(action="/post", method="POST")
+        label(for="postContent") Create a Post: 
+        textarea(id="postContent", name="postContent")
+        button Post
+
+  if errors 
+    ul 
+      for error in errors 
+        li!= error.msg
