@@ -7,6 +7,12 @@ block content
   if user
     if user.membership_status === "guest"
       p You are a guest, enter the secret password to become a member to post!
+      form(action="/make-member", method="POST")
+        label(for="secret") Enter the secret password: 
+        input(type="password", name="secret")
+        button Submit
+      if incorrect_secret 
+        p That is the incorrect secret password!
     else if user.membership_status === "member"
       p You are a member!
   else

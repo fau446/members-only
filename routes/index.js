@@ -30,4 +30,7 @@ router.post("/sign-up", userController.sign_up_post);
 // Log out request
 router.get("/logout", userController.logout);
 
+// POST request for becoming a member
+router.post("/make-member", userController.make_member);
+
 module.exports = router;
