@@ -46,9 +46,11 @@ exports.create_post = [
   }),
 ];
 
-// exports.create_post = asyncHandler(async (req, res, next) => {
-//   const postDetail = {
-//     user: req.user,
-//   };
-//   res.redirect("/");
-// });
+exports.delete_post = asyncHandler(async (req, res, next) => {
+  try {
+    await Post.findByIdAndDelete(req.body.messageid);
+    res.redirect("/");
+  } catch (err) {
+    return next(err);
+  }
+});

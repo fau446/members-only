@@ -13,6 +13,9 @@ router.get("/", postController.index);
 // POST request for creating a post
 router.post("/post", postController.create_post);
 
+// POST request for deleting a post
+router.post("/delete-post", postController.delete_post);
+
 /// USER ROUTES ///
 
 // GET request for login

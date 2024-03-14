@@ -28,6 +28,10 @@ block content
           else 
             p Posted by: Anonymous
           p #{post.message}
+          if user && user.admin
+            form(action="/delete-post", method="POST")
+              input(type="hidden", name="messageid", value=post._id)
+              button Delete Message
   else
     p There are no posts.
 
